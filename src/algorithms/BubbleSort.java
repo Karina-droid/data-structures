@@ -1,13 +1,13 @@
 package algorithms;
 
-public class Sort {
+public class BubbleSort {
 	public void swap(int[] arr, int i, int j) {
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
 	}
 	
-	public void bubbleSort(int[] arr) {
+	public void sort(int[] arr) {
 		int n = arr.length - 1;
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n-i; j++) {
@@ -91,10 +91,12 @@ public class Sort {
 	
 	
 	public void sort(int[] arr, int l, int r) {
-		int m = l + (r - l)/2;
-		sort(arr, l, m);
-		sort(arr, m+1, r);
-		merge(arr, l, m, r);
+		if(l<r) {
+			int m = l + (r - l)/2;
+			sort(arr, l, m);
+			sort(arr, m+1, r);
+			merge(arr, l, m, r);
+		}
 	}
 	
 	
